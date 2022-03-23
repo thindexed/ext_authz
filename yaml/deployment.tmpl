@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oidc
+  namespace: auth
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: oidc
+  template:
+    metadata:
+      labels:
+        name: oidc
+    spec:
+      volumes:
+        - name: secret-volume
+          secret:
+            secretName: idp-binding
+      containers:
+      - name: oidc
+        image: <image-name>
+        volumeMounts:
+          - name: secret-volume
+            mountPath: /app/secrets/
+            readOnly: true
+        resources:
+          requests:
+            memory: "250Mi"
+            cpu: "250m"
+          limits:
+            memory: "250Mi"
+            cpu: "250m"
