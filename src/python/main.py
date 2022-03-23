@@ -55,7 +55,7 @@ def authz(filename):
         return "allow", 200, {
             "x-mail": session['email'],
             "x-family_name": session['family_name'],
-            "x-firstname": session['given_name'],
+            "x-given_name": session['given_name'],
             "x-role": "user"
         }
     else :
@@ -63,7 +63,7 @@ def authz(filename):
         return "allow", 200, {
             "x-mail": "Guest",
             "x-family_name": "Guest",
-            "x-firstname": "Guest",
+            "x-given_name": "Guest",
             "x-role": "guest"
         }
 
