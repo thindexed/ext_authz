@@ -25,7 +25,7 @@ RUN addgroup beaker && \
 RUN apt-get -y update && apt-get install ca-certificates
 RUN update-ca-certificates
 
-COPY /src /app/src
+COPY /python /app/src
 COPY requirements.txt /app
 WORKDIR /app
 
