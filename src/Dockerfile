@@ -15,16 +15,6 @@ FROM python@sha256:0944c626f71b2f44ed45c13761f3cb97d75566261ade2b2d34f6ce2987dac
 RUN addgroup beaker && \
     adduser --gecos "" --ingroup beaker --disabled-password beaker
 
-# for some reason we need GCC to compile a python module "multidict"....blows up the image :-/
-# (consider to use a multistage Dockerfile build )
-#
-# Alpine
-#RUN apk update && apk add gcc python3-dev musl-dev alpine-sdk linux-headers libev-dev
-# Debian
-# RUN apt-get -y update
-RUN apt-get -y update && apt-get install ca-certificates
-RUN update-ca-certificates
-
 COPY /python /app/src
 COPY requirements.txt /app
 WORKDIR /app
