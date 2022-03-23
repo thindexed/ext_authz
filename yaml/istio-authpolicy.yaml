@@ -19,7 +19,7 @@ spec:
   rules:
     - to:
         - operation:
-            hosts: ["app.<DOMAIN>"]
+            paths: ["/permissions/*"]
 ---
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy

@@ -44,7 +44,7 @@ def authz(filename):
 
         # TODO: redirect to the "ORIGIN-URL" instead of the "/" root path
         #
-        return redirect("/home", code=302)
+        return redirect("/home/", code=302)
 
     # check user session and send HTTP-200 on success
     # TODO: check expirence time of the token. But right now the "session" has a livetime of only
