@@ -13,8 +13,8 @@ app.secret_key = b'F4Qjhgkjhgyfg8z\<sdnjj\xec]/'
 @app.route('/', defaults={'filename': ''}, methods=['GET', 'POST'])
 @app.route('/<path:filename>', methods=['GET', 'POST'])
 def authz(filename):
-    # app.logger.debug(request.headers)
-    # app.logger.debug(request.data)
+    app.logger.debug(request.headers)
+    app.logger.debug(request.form)
  
     # check if we get an callback from the OIDC auth flow
     #
