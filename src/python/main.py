@@ -59,7 +59,7 @@ def authz(filename):
             "x-role": "user"
         }
     else :
-        print("No user in session: "+session.get('email'))
+        print("No user in session: ")
         return "allow", 200, {
             "x-mail": "Guest",
             "x-family_name": "Guest",
