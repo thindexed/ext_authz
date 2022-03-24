@@ -46,6 +46,7 @@ def authz(filename):
         #
         return redirect(os.environ.get("BASE_URL")+"/home/", code=302)
 
+
     # check user session and send HTTP-200 on success
     # TODO: check expirence time of the token. But right now the "session" has a livetime of only
     #       2 minutes and after this time period the id_token is gone.
