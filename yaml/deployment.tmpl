@@ -20,6 +20,9 @@ spec:
       containers:
       - name: oidc
         image: <image-name>
+        env:
+        - name: BASE_URL
+          value: "https://<DOMAIN>"
         volumeMounts:
           - name: secret-volume
             mountPath: /app/secrets/

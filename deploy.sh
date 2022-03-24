@@ -9,7 +9,7 @@ fi
 echo "Using Domain: $DOMAIN"
 
 kubectl apply -f ./yaml/namespace.yaml
-kubectl apply -f ./yaml/deployment.yaml
+cat ./yaml/deployment.yaml | sed "s~<DOMAIN>~$DOMAIN~g" | kubectl apply -f -
 kubectl apply -f ./yaml/service.yaml
 
 cat ./yaml/istio-authpolicy.yaml | sed "s~<DOMAIN>~$DOMAIN~g" | kubectl apply -f -
