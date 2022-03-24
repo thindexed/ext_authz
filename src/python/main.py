@@ -65,7 +65,7 @@ def authz(filename):
             "x-mail": "Guest",
             "x-family_name": "Guest",
             "x-given_name": "Guest",
-            "x-role": "guest"
+            "x-role": "anonym"
         }
 
 if __name__ == '__main__':
