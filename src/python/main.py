@@ -56,11 +56,11 @@ def authz(filename):
     if session.get('id_token'):
         print("Found user in session: "+session.get('email'))
         return "allow", 200, {
-            "x-mail": session['email'],
-            "x-picture": session['picture'],
-            "x-name": session['name'],
-            "x-family_name": session['family_name'],
-            "x-given_name": session['given_name'],
+            "x-mail": session.get('email'),
+            "x-picture": session.get('picture'),
+            "x-name": session.get('name'),
+            "x-family_name": session.get('family_name'),
+            "x-given_name": session.get('given_name'),
             "x-role": "user"
         }
     else :
