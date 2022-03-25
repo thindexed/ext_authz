@@ -36,7 +36,7 @@ def authz(filename):
 
         # Specify the CLIENT_ID of the app that accesses the backend:
         idinfo = id_token.verify_oauth2_token(token, requests.Request(), client_id)
-        
+        print(idinfo)
         session['id_token'] = token
         session['email'] = idinfo["email"]
         session['family_name'] = idinfo["family_name"]
