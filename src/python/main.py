@@ -39,6 +39,8 @@ def authz(filename):
         print(idinfo)
         session['id_token'] = token
         session['email'] = idinfo["email"]
+        session['picture'] = idinfo["picture"]
+        session['name'] = idinfo["name"]
         session['family_name'] = idinfo["family_name"]
         session['given_name'] = idinfo["given_name"]
 
@@ -55,6 +57,8 @@ def authz(filename):
         print("Found user in session: "+session.get('email'))
         return "allow", 200, {
             "x-mail": session['email'],
+            "x-picture": session['picture'],
+            "x-name": session['name'],
             "x-family_name": session['family_name'],
             "x-given_name": session['given_name'],
             "x-role": "user"
@@ -63,6 +67,7 @@ def authz(filename):
         print("No user in session: ")
         return "allow", 200, {
             "x-mail": "Guest",
+            "x-name": "Guest",
             "x-family_name": "Guest",
             "x-given_name": "Guest",
             "x-role": "anonym"
