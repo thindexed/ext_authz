@@ -19,7 +19,7 @@ spec:
             secretName: idp-binding
       containers:
       - name: oidc
-        image: docker.io/freegroup/thindexed-ext_authz:0.1.0-27
+        image: docker.io/freegroup/thindexed-ext_authz:0.1.0-29
         env:
         - name: BASE_URL
           value: "https://app.<DOMAIN>"
