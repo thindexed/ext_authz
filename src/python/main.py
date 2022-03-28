@@ -8,7 +8,7 @@ from flask import Flask, request, session, redirect
 app = Flask(__name__)
 app.logger.setLevel(logging.DEBUG)
 # Set the secret key to some random bytes. Keep this really secret!
-app.secret_key = b'F4Qjhgkjhgyfg8z\<sdnjj\xec]/'
+app.secret_key = b'F4Qjhgkjhgsdfgyfg8z\<sdnjj\xec]/'
 
 @app.route('/', defaults={'filename': ''}, methods=['GET', 'POST'])
 @app.route('/<path:filename>', methods=['GET', 'POST'])
@@ -61,7 +61,7 @@ def authz(filename):
             "x-name": session.get('name'),
             "x-family_name": session.get('family_name'),
             "x-given_name": session.get('given_name'),
-            "x-role": "user"
+            "x-role": "admin" if session.get('email')=="openjacob@gmail.com" else "user"
         }
     else :
         print("No user in session: ")
