@@ -19,10 +19,10 @@ spec:
             secretName: idp-binding
       containers:
       - name: oidc
-        image: docker.io/freegroup/thindexed-ext_authz:0.1.0-29
+        image: <OCIIMAGE>
         env:
         - name: BASE_URL
-          value: "https://app.<DOMAIN>"
+          value: "https://<DOMAIN>"
         volumeMounts:
           - name: secret-volume
             mountPath: /app/secrets/
